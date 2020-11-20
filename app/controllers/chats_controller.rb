@@ -3,8 +3,7 @@ class ChatsController < ApplicationController
 
 
     def index
-     @chat=Chat.all
-
+      @chats=Chat.all
     end
 
 
@@ -14,7 +13,7 @@ class ChatsController < ApplicationController
 
 
     def show
-      redirect_to new_chat_path
+      @chat=Chat.find(params[:id])
     end
 
     def create
@@ -38,6 +37,13 @@ class ChatsController < ApplicationController
 
 
     end
+
+   def confirm
+
+
+   end
+
+
 
     def destroy
 

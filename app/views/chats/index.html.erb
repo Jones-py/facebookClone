@@ -1,5 +1,19 @@
-<h1>Chats#index</h1>
-<p>Find me in app/views/chats/index.html.erb</p>
+<h1>Chat room</h1>
 
+<div class="container">
+  <table>
+    <tr>
+      <th>Current Posts</th>
 
-<%=link_to 'create new post', new_chat_path%>
+    </tr>
+  <% @chats.each do |chat| %>
+    <tr>
+      <td><%= chat.post %></td>
+
+    </tr>
+
+  <% end %>
+  </table>
+
+  <%=link_to 'create new post', new_chat_path%>
+</div>
