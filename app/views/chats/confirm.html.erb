@@ -1,0 +1,6 @@
+
+<h3>Send with the following contents.</h3>
+<%= form_with(model: @chat, url: chats_path, local: true) do |form| %>
+  <%= form.hidden_field :post %>
+  <%= form.submit   "Proceed" %>
+<%end%>

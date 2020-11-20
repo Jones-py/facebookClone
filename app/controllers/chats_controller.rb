@@ -8,12 +8,12 @@ class ChatsController < ApplicationController
 
 
     def new
-     @chat=Chat.new
+      @chat=Chat.new
     end
 
 
     def show
-      @chat=Chat.find(params[:id])
+
     end
 
     def create
@@ -34,27 +34,30 @@ class ChatsController < ApplicationController
     end
 
     def update
-
-
-    end
+        if @chat.update(chat_params)
+           redirect_to chats_path, notice: "post edited!"
+         else
+           render :edit
+         end
+      end
 
    def confirm
-
-
+     @chat=Chat.new(chat_params)
+     render :new if @chat.invalid?
    end
 
 
 
-    def destroy
+   def destroy
+     @chat.destroy
+     redirect_to chats_path, notice:"I deleted the post!"
+   end
 
-    end
-
-    private
-    def set_chat
-      @chat=Chat.find(params[:id])
-    end
-    def chat_params
-      params.require(:chat).permit(:post)
-    end
-
+  private
+  def set_chat
+    @chat=Chat.find(params[:id])
+  end
+  def chat_params
+    params.require(:chat).permit(:post)
+  end
  end
