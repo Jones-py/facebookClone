@@ -12,9 +12,9 @@
       <div class="card-body">
       <h5 class="Post"></h5>
       <p class="card-text"><%=truncate(chat.post, length:100) %></p>
-      <a href="#" class="btn btn-outline-success">View</a>
-      <a href="#" class="btn btn-outline-info">Edit</a>
-        <a href="#" class="btn btn-outline-danger">Delete</a>
+        <%= link_to "View", chat_path(chat), class: "btn btn-outline-success" %>
+        <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn-outline-success" %>
+        <%= link_to "Delete", chat_path(chat.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
     <div class="card-footer text-muted">
       <small> <%=time_ago_in_words(chat.created_at)%> ago </small>
