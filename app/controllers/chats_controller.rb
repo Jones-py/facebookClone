@@ -42,8 +42,8 @@ class ChatsController < ApplicationController
       end
 
    def confirm
-     @chat=Chat.new(chat_params)
-     render :new if @chat.invalid?
+      @chat=Chat.new(chat_params)
+      render :new if @chat.invalid?
    end
 
 
