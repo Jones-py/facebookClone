@@ -1,23 +1,32 @@
-<h4>Sign up</h4>
-
- <% if @user.errors.any? %>
- <div id="error_explanation">
-   <h6><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h6>
-   <ul>
-   <% @user.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
-   <% end %>
-   </ul>
- </div>
- <% end %>
- <%= form_with(model: @user, local: true) do |f| %>
-   <%= f.label :name %>
-   <%= f.text_field :name %>
-   <%= f.label :email %>
-   <%= f.email_field :email %>
-   <%= f.label :password %>
-   <%= f.password_field :password %>
-   <%= f.label :password_confirmation %>
-   <%= f.password_field :password_confirmation %>
-   <%= f.submit "Create my account" %>
- <% end %>
+   <div class="container,justify-content-center">
+     <div class="col-5">
+       <%= form_with(model: @user, local: true) do |f| %>
+        <div class="form-group">
+          <label for="Name"><%= f.label :name %></label>
+           <div class="row">
+            <div class="col-xs-6"><%= f.text_field :name %></div>
+          </div>
+          <br>
+         <div class="form-group">
+           <label for="exampleInputEmail1"><%=f.label :email %></label>
+            <div class="row">
+             <div class="col-xs-6"><%=f.email_field :email %></div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="Password"><%= f.label :password %></label>
+             <div class="row">
+              <div class="col-xs-6"> <%= f.password_field :password %></div>
+           </div>
+           <br>
+           <div class="form-group">
+             <label for="Password"><%= f.label :password_confirmation %></label>
+              <div class="row">
+               <div class="col-xs-6"><%=f.password_field :password_confirmation %></div>
+            </div>
+            <br>
+            <%=f.submit "Sign Up" %>
+            <%end%>
+           </div>
+          </div>
+       </div>
