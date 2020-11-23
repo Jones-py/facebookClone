@@ -1,13 +1,13 @@
-<% if @chat.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-   <h4 class="alert-heading"><%= @chat.errors.count %>There are errors.</h4>
+
+<div class="container">
+  <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert"> -->
+  <% if @chat.errors.any? %>
+  <h4><%= @chat.errors.count %> Errors Present.</h4>
     <ul>
     <% @chat.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
- </div>
-<% end %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+  </div>
+<!-- </div> -->

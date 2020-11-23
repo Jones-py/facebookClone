@@ -1,6 +1,8 @@
 
-<h6>Send with the following contents.</h6>
+<h6>Confirm Post Details</h6>
 <%=form_with(model: @chat, url: chats_path, local: true) do |form| %>
   <%=form.hidden_field :post %>
+  <%=@chat.post %>
+  <br>
   <%=form.submit   "Proceed" %>
 <%end%>
