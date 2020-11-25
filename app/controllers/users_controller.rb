@@ -8,10 +8,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+   @user = User.find(params[:id])
+
+  end
+
+  def update
+
+  end
+
+  
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path(@user.id)
+      flash[:notice]="Hello #{@user}Sign up was successful"
+      redirect_to chats_path
     else
      render :new
     end
