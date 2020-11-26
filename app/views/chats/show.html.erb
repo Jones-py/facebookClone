@@ -9,7 +9,12 @@
       </div>
       <div class="card-body">
       <h5 class="Post"></h5>
-      <p>class="card-text"><%=@chat.post %></p>
+        <%=@chat.post %>
+        <br>
+        <br>
+        <%=image_tag @chat.image.url,:size => "200x180" %>
+        <br>
+        <br>
         <%= link_to "Edit", edit_chat_path(@chat), class: "btn btn-outline-success" %>
         <%= link_to "Delete", chat_path(@chat), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
         <%=link_to 'Return to Timeline', chats_path(@chat), class: "btn btn-outline-success" %>

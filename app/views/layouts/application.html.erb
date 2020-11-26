@@ -5,18 +5,15 @@
         <title>FacebookClone</title>
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
-
         <%=stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%=javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
       </head>
-
       <body class="d-flex flex-column">
-         
       <%= render 'layouts/navigator' %>
       <div id="page-content">
         <%= yield %>
       </div>
-    <div class="fixed-bottom"><%= render 'layouts/footer' %></div>
+    <div class="footer"><%= render 'layouts/footer' %></div>
   </body>
     </html>
 </div>

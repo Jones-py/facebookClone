@@ -3,6 +3,13 @@
 <%=form_with(model: @chat, url: chats_path, local: true) do |form| %>
   <%=form.hidden_field :post %>
   <%=@chat.post %>
-  <br>
-  <%=form.submit   "Proceed" %>
+  <div class="image-size">
+  <%= image_tag @chat.image.url,:size => "260x180" if @chat.image && @chat.image.url%>
+  <%= form.hidden_field :image_cache %>
+  </div>
+  <%=form.submit "Proceed" %>
 <%end%>
+<%=form_with(model:@chat, url:new_chat_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Return", name: "back" %>
+<% end %>

@@ -9,8 +9,18 @@
         <div class="col-10">
          <%= form.text_area :post, rows: 10, class:"form-control shadow rounded",placeholder: "Post contents" %>
          </div>
+         <div class="field">
+            <%= form.label :image %>
+            <%= image_tag(@chat.image.url,:size => "20x18") if @chat.image && @chat.image.url %>
+            <%= form.file_field :image%>
+            <%= form.hidden_field :image_cache %>
+          </div>
       </div>
-      <div class="row justify-content-center"><%= form.submit class:"btn btn-success btn-sm" %></div>
+      <% if @chat.id.present? %>
+          <div class="row justify-content-center"><%= form.submit "Update post", class:"btn btn-success btn-sm" %></div>
+      <% else %>
+          <div class="row justify-content-center"><%= form.submit "Create post", class:"btn btn-success btn-sm" %></div>
+      <% end %>
     <% end %>
     <div class="row justify-content-center"><%=link_to '[Return to menu]', chats_path%></div>
   </div>

@@ -1,5 +1,6 @@
 
 <div class="container">
+  
   <% @chats.each do |chat| %>
   <div class="row justify-content-md-center">
     <div class="col-8 mt-4">
@@ -9,7 +10,8 @@
       </div>
       <div class="card-body">
       <h5 class="Post"></h5>
-      <p class="card-text"><%=truncate(chat.post, length:100) %></p>
+      <p class="card-text"><%=truncate(chat.post, length:100) %></p><br>
+        <%=image_tag chat.image.url,:size => "300x280" %><br><br>
         <%= link_to "View", chat_path(chat), class: "btn btn-outline-success" %>
         <%= link_to "Edit", edit_chat_path(chat.id), class: "btn btn-outline-success" %>
         <%= link_to "Delete", chat_path(chat.id), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>

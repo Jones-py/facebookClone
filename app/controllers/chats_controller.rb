@@ -58,6 +58,6 @@ class ChatsController < ApplicationController
     @chat=Chat.find(params[:id])
   end
   def chat_params
-    params.require(:chat).permit(:post)
+    params.require(:chat).permit(:post, :image, :image_cache)
   end
  end
