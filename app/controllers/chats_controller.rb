@@ -10,14 +10,12 @@ class ChatsController < ApplicationController
     def new
       @chat=Chat.new
     end
-
-
     def show
-
     end
 
     def create
       @chat= Chat.new(chat_params)
+      @chat.user_id=current_user.id
       if params[:back]
        render :new
       else
@@ -43,10 +41,9 @@ class ChatsController < ApplicationController
 
    def confirm
       @chat=Chat.new(chat_params)
+      @chat.user_id=current_user.id
       render :new if @chat.invalid?
    end
-
-
 
    def destroy
      @chat.destroy
@@ -58,6 +55,6 @@ class ChatsController < ApplicationController
     @chat=Chat.find(params[:id])
   end
   def chat_params
-    params.require(:chat).permit(:post, :image, :image_cache)
+    params.require(:chat).permit(:post, :image, :image_cache, :user_id, :id)
   end
  end
